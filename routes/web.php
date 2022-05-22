@@ -20,10 +20,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 // pt
-Route::get('/', [PtController::class, 'index2']);
+Route::get('/', [LoginController::class, 'pt_dashboard']);
 
 Route::get('/login', [LoginController::class, 'pt']);
-Route::post('/login', [LoginController::class, 'authenticate_pt'])->name('pt_login');
+Route::post('/login', [LoginController::class, 'check_pt'])->name('pt_login');
 
 Route::get('/form', [PertanyaanController::class, 'show']);
 

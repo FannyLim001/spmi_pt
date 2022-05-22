@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Pt;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class PtSeeder extends Seeder
 {
@@ -33,7 +34,7 @@ class PtSeeder extends Seeder
                     'website' => $data['9'],
                     'no_tel' => $data['10'],
                     'email' => $data['11'],
-                    'password_pt' => $data['2'],
+                    'password_pt' => Hash::make($data['2']),
                     'total_mhs' => '2345',
                     'total_dosen' => '70',
                     'total_program' => '20',

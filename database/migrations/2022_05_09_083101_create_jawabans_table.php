@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('jawabans', function (Blueprint $table) {
             $table->increments('id_jawaban');
-            $table->string('jawaban_positif');
-            $table->string('jawaban_negatif');
-            $table->integer('jawaban_numerik');
+            $table->string('jawaban');
+            $table->unsignedBigInteger('id_pertanyaan');
+            $table->foreignId('id_pertanyaan')->constrained('pertanyaans');
+            $table->string('hasil');
+            $table->string('rekomendasi');
             $table->timestamps();
         });
 

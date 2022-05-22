@@ -10,11 +10,8 @@
                 </div>
                 <div class="text-end pt-1">
                     <p class="text-sm mb-0 text-capitalize">Total Mahasiswa</p>
-                    <h4 class="mb-0">2453</h4>
+                    <h4 class="mb-0">{{ $LoggedUserInfo['total_mhs'] }}</h4>
                 </div>
-            </div>
-            <div class="card-footer p-3">
-                <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than lask year</p>
             </div>
         </div>
     </div>
@@ -26,12 +23,8 @@
                 </div>
                 <div class="text-end pt-1">
                     <p class="text-sm mb-0 text-capitalize">Total Dosen</p>
-                    <h4 class="mb-0">70</h4>
+                    <h4 class="mb-0">{{ $LoggedUserInfo['total_dosen'] }}</h4>
                 </div>
-            </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-                <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+3% </span>than last month</p>
             </div>
         </div>
     </div>
@@ -43,12 +36,8 @@
                 </div>
                 <div class="text-end pt-1">
                     <p class="text-sm mb-0 text-capitalize">Total Program Studi</p>
-                    <h4 class="mb-0">20</h4>
+                    <h4 class="mb-0">{{ $LoggedUserInfo['total_program'] }}</h4>
                 </div>
-            </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-                <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+3% </span>than last few years</p>
             </div>
         </div>
     </div>
@@ -60,12 +49,8 @@
                 </div>
                 <div class="text-end pt-1">
                     <p class="text-sm mb-0 text-capitalize">Total Publikasi</p>
-                    <h4 class="mb-0">2000</h4>
+                    <h4 class="mb-0">{{ $LoggedUserInfo['total_publikasi'] }}</h4>
                 </div>
-            </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-                <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+5% </span>than last month</p>
             </div>
         </div>
     </div>
@@ -85,10 +70,10 @@
             <div class="col-auto my-auto">
                 <div class="h-100">
                     <h5 class="mb-1">
-                        {{ $data->nama_pt }}
+                    {{ $LoggedUserInfo['nama_pt'] }}
                     </h5>
                     <p class="mb-0 font-weight-normal text-sm">
-                    {{ $data->nm_bp }}
+                    {{ $LoggedUserInfo['nm_bp'] }}
                     </p>
                 </div>
             </div>
@@ -111,16 +96,16 @@
                         </div>
                         <div class="card-body p-3">
                             <ul class="list-group">
-                                <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">NPSN:</strong> &nbsp; {{ $data->npsn }} </li>
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Lembaga:</strong> &nbsp; {{ $data->lembaga }} </li>
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Kelompok Koordinator:</strong> &nbsp; {{ $data->kelompok_koordinator }}</li>
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Provinsi:</strong> &nbsp; {{ $data->provinsi_pt }}</li>
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Jalan:</strong> &nbsp; {{ $data->jln }}</li>
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Kecamatan:</strong> &nbsp; {{ $data->kec_pt }}</li>
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Kota/Kabupaten:</strong> &nbsp; {{ $data["kabupaten/kota"] }}</li>
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Website:</strong> &nbsp; {{ $data->website }}</li>
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">No Telp:</strong> &nbsp; {{ $data->no_tel }}</li>
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; {{ $data->email }}</li>
+                                <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">NPSN:</strong> &nbsp; {{ $LoggedUserInfo['npsn'] }} </li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Lembaga:</strong> &nbsp; {{ $LoggedUserInfo['lembaga'] }} </li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Kelompok Koordinator:</strong> &nbsp; {{ $LoggedUserInfo['kelompok_koordinator'] }}</li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Provinsi:</strong> &nbsp; {{ $LoggedUserInfo['provinsi_pt'] }}</li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Jalan:</strong> &nbsp; {{ $LoggedUserInfo['jln'] }}</li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Kecamatan:</strong> &nbsp; {{ $LoggedUserInfo['kec_pt'] }}</li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Kota/Kabupaten:</strong> &nbsp; {{ $LoggedUserInfo['kabupaten/kota'] }}</li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Website:</strong> &nbsp; {{ $LoggedUserInfo['website'] }}</li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">No Telp:</strong> &nbsp; {{ $LoggedUserInfo['no_tel'] }}</li>
+                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; {{ $LoggedUserInfo['email'] }}</li>
                             </ul>
                         </div>
                     </div>

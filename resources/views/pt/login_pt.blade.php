@@ -70,17 +70,15 @@
                                         @csrf
                                         <div class="input-group input-group-outline mb-3">
                                             <label class="form-label">Kode Perguruan Tinggi</label>
-                                            <input type="text" class="form-control @error('kode_pt') is-invalid @enderror" name="npsn" autofocus required>
-                                            @error('kode_pt')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                            @enderror
+                                            <input type="text" class="form-control" name="npsn" autofocus required>
                                         </div>
+                                        <span class="text-danger">@error('npsn'){{ $message }} @enderror</span>
+                                        
                                         <div class="input-group input-group-outline mb-3">
                                             <label class="form-label">Password</label>
                                             <input type="password" name="password" class="form-control">
                                         </div>
+                                        <span class="text-danger">@error('password'){{ $message }} @enderror</span>
                                         <div class="text-center">
                                             <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Login</button>
                                         </div>

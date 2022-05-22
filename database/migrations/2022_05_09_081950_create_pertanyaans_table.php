@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('pertanyaans', function (Blueprint $table) {
             $table->id();
             $table->string('pertanyaan');
-            $table->string('kategori');
-            $table->unsignedinteger('id_jawaban');
-            $table->string('hasil');
-            $table->string('rekomendasi');
+            $table->unsignedinteger('id_kategori');
+            $table->unsignedinteger('id_tipe');
+            $table->foreignId('id_kategori')->constrained('kategori_pertanyaan');
+            $table->foreignId('id_tipe')->constrained('tipe_pertanyaan');
             $table->timestamps();
         });
     }
