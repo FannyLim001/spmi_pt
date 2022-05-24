@@ -24,8 +24,9 @@ Route::get('/', [LoginController::class, 'pt_dashboard']);
 
 Route::get('/login', [LoginController::class, 'pt']);
 Route::post('/login', [LoginController::class, 'check_pt'])->name('pt_login');
+Route::get('/logout', [LoginController::class, 'logout_pt'])->name('pt_logout');
 
-Route::get('/form', [PertanyaanController::class, 'show']);
+Route::get('/form', [LoginController::class, 'pt_form']);
 
 Route::post('/hasil', [PtController::class, 'show']);
 
@@ -37,7 +38,7 @@ Route::get('/admin/dashboard', function () {
 });
 
 Route::get('/admin/login', [LoginController::class, 'admin']);
-Route::post('/admin/login', [LoginController::class, 'authenticate_admin'])->name('admin_login');
+Route::post('/admin/login', [LoginController::class, 'check_admin'])->name('admin_login');
 
 Route::get('/pertanyaan', [PertanyaanController::class, 'index']);
 

@@ -86,22 +86,4 @@ class PertanyaanController extends Controller
         return redirect('pertanyaan')->with('success', 'Data berhasil dihapus!');
     }
 
-    public function show(){
-
-        $pertanyaan = Pertanyaan::join('tipe_pertanyaan', 'tipe_pertanyaan.id_tipe_pertanyaan', '=', 'pertanyaans.id_tipe_pertanyaan')
-                ->select('pertanyaans.*','tipe_pertanyaan.*')
-                ->get();
-
-        $jwb = Jawaban::join('pertanyaans', 'pertanyaans.id', '=', 'jawabans.id_pertanyaan')
-                ->select('pertanyaans.*','jawabans.*')
-                ->where('id_pertanyaan','=',1)
-                ->get();
-        
-        return view('pt/form_spmi', [
-            "title" => "Form",
-            "pertanyaan" => $pertanyaan,
-            "jawaban" => $jwb,
-        ]);
-    }
-
 }

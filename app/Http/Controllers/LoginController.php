@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jawaban;
+use App\Models\Pertanyaan;
 use App\Models\Pt;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -26,78 +29,91 @@ class LoginController extends Controller
         ]);
 
         $userInfo = Pt::where('npsn','=', $request->npsn)->first();
-
         if(!$userInfo){
             return back()->with('loginError','Kode PT Tidak terdeteksi');
         }else{
-            //check password
-            if(Hash::check($request->password, $userInfo->password)){
+            $request->session()->put('LoggedUser', $userInfo->id);
+            // check password
+            // echo $request->password ."<br>";
+            // echo $userInfo->password_pt."<br>";
+            if($request->password === $userInfo->password_pt){
                 $request->session()->put('LoggedUser', $userInfo->id);
                 return redirect('/');
 
             }else{
+                
+                echo $request->password == $userInfo->password_pt;
                 return back()->with('loginError','Password Salah');
             }
         }
     }
 
+    public function logout_pt(Request $request)
+    {
+        Auth::logout();
+    
+        $request->session()->invalidate();
+    
+        $request->session()->regenerateToken();
+    
+        return redirect('/login');
+    }
+
     function pt_dashboard(){
-        $data = ['LoggedUserInfo'=>Pt::where('id','=', session('LoggedUser'))->first()];
+        $data = ['LoggedUserInfo'=>Pt::where('id','=', session('LoggedUser'))->first(),
+                "title" => "Dashboard",];
         return view('pt.dashboard', $data);
     }
 
-    // public function authenticate_pt(Request $request)
-    // {
-    //     $credentials = $request->validate([
-    //         'npsn' => ['required'],
-    //         'password' => ['required','min:6','max:12'],
-    //     ]);
+    function pt_form(){
 
-    //     if (Auth::guard('web')->attempt($credentials)) {
-    //         $request->session()->regenerate();
+        $pertanyaan = Pertanyaan::join('tipe_pertanyaan', 'tipe_pertanyaan.id_tipe_pertanyaan', '=', 'pertanyaans.id_tipe_pertanyaan')
+                ->select('pertanyaans.*','tipe_pertanyaan.*')
+                ->get();
 
-    //         return redirect()->intended('/');
-    //     }
+        $jwb = Jawaban::join('pertanyaans', 'pertanyaans.id', '=', 'jawabans.id_pertanyaan')
+                ->select('pertanyaans.*','jawabans.*')
+                ->get();
 
-    //     return back()->with('loginError','Login Gagal!');
-    // }
+        $data = ['LoggedUserInfo'=>Pt::where('id','=', session('LoggedUser'))->first(),
+                "title" => "Form","pertanyaan" => $pertanyaan,
+                "jawaban" => $jwb,];
+        return view('pt.form_spmi', $data);
+    }
 
-    // public function logout_pt(Request $request)
-    // {
-    //     Auth::logout();
+    function check_admin(Request $request){
+        //Validate requests
+        $request->validate([
+             'email'=>'required|email',
+             'password'=>'required|min:6|max:12'
+        ]);
+
+        $userInfo = User::where('email','=', $request->email)->first();
+
+        if(!$userInfo){
+            return back()->with('loginError','Email Tidak terdeteksi');
+        }else{
+            //check password
+            echo $request->email ."<br>";
+            echo $userInfo->password."<br>";
+            // if($request->password === $userInfo->password){
+            //     $request->session()->put('LoggedAdmin', $userInfo->id);
+            //     return redirect('/admin/dashboard');
+
+            // }else{
+            //     return back()->with('loginError','Password Salah');
+            // }
+        }
+    }
+
+    public function logout_admin(Request $request)
+    {
+        Auth::logout();
     
-    //     $request->session()->invalidate();
+        $request->session()->invalidate();
     
-    //     $request->session()->regenerateToken();
+        $request->session()->regenerateToken();
     
-    //     return redirect('/');
-    // }
-
-
-    // public function authenticate_admin(Request $request)
-    // {
-    //     $credentials = $request->validate([
-    //         'email' => ['required', 'email:dns'],
-    //         'password' => ['required'],
-    //     ]);
-
-    //     if (Auth::guard('admin')->attempt($credentials)) {
-    //         $request->session()->regenerate();
-
-    //         return redirect()->intended('/admin/dashboard');
-    //     }
-
-    //     return back()->with('loginError','Login Gagal!');
-    // }
-
-    // public function logout_admin(Request $request)
-    // {
-    //     Auth::logout();
-    
-    //     $request->session()->invalidate();
-    
-    //     $request->session()->regenerateToken();
-    
-    //     return redirect('admin/dashboard');
-    // }
+        return redirect('admin/login');
+    }
 }

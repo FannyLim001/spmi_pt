@@ -62,21 +62,26 @@
                 </div>
                 @if(($p->tipe_pertanyaan) === "radiobutton")
                 @foreach ($jawaban as $j )
+                @if($p->id === $j->id_pertanyaan)
                 <div class="card-body pt-2 p-1">
                     <div class="form-check mb-0">
-                        <input class="form-check-input" type="radio" name="jwb" id="customRadio1">
-                        <label class="custom-control-label" for="customRadio1">{{ $j->jawaban }}</label>
+                        <input class="form-check-input" type="radio" name="jwb{{$p->id}}" value="{{ $j->id_jawaban }}" id="customRadio{{$p->id}}">
+                        <label class="custom-control-label" for="customRadio{{$p->id}}">{{ $j->jawaban }}</label>
                     </div>
                 </div>
+                @endif
                 @endforeach
+                
                 @elseif(($p->tipe_pertanyaan) === "checkbox")
                 @foreach ($jawaban as $j )
+                @if($p->id === $j->id_pertanyaan)
                 <div class="card-body pt-2 p-0">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="fcustomCheck1">
                         <label class="custom-control-label" for="customCheck1">{{ $j->jawaban }}</label>
                     </div>
                 </div>
+                @endif
                 @endforeach
                 @endif
             </div>
