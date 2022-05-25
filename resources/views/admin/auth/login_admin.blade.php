@@ -55,7 +55,7 @@
                                     @csrf
                                     <div class="input-group input-group-outline my-3">
                                         <label class="form-label">Email</label>
-                                        <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" name="email" autofocus required>
+                                        <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" autofocus required>
                                             @error('email')
                                             <div class="invalid-feedback">
                                                 {{ $message }}

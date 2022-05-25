@@ -34,8 +34,6 @@ class LoginController extends Controller
         }else{
             $request->session()->put('LoggedUser', $userInfo->id);
             // check password
-            // echo $request->password ."<br>";
-            // echo $userInfo->password_pt."<br>";
             if($request->password === $userInfo->password_pt){
                 $request->session()->put('LoggedUser', $userInfo->id);
                 return redirect('/');
@@ -50,13 +48,10 @@ class LoginController extends Controller
 
     public function logout_pt(Request $request)
     {
-        Auth::logout();
-    
-        $request->session()->invalidate();
-    
-        $request->session()->regenerateToken();
-    
-        return redirect('/login');
+        if(session()->has('LoggedUser')){
+            session()->pull('LoggedUser');
+            return redirect('/login');
+        }
     }
 
     function pt_dashboard(){
@@ -85,7 +80,7 @@ class LoginController extends Controller
         //Validate requests
         $request->validate([
              'email'=>'required|email',
-             'password'=>'required|min:6|max:12'
+             'password'=>'required'
         ]);
 
         $userInfo = User::where('email','=', $request->email)->first();
@@ -93,27 +88,23 @@ class LoginController extends Controller
         if(!$userInfo){
             return back()->with('loginError','Email Tidak terdeteksi');
         }else{
-            //check password
-            echo $request->email ."<br>";
-            echo $userInfo->password."<br>";
-            // if($request->password === $userInfo->password){
-            //     $request->session()->put('LoggedAdmin', $userInfo->id);
-            //     return redirect('/admin/dashboard');
+            // check password
+            
+            if($request->password === $userInfo->password){
+                $request->session()->put('LoggedAdmin', $userInfo->id);
+                return redirect('/admin/dashboard');
 
-            // }else{
-            //     return back()->with('loginError','Password Salah');
-            // }
+            }else{
+                return back()->with('loginError','Password Salah');
+            }
         }
     }
 
     public function logout_admin(Request $request)
     {
-        Auth::logout();
-    
-        $request->session()->invalidate();
-    
-        $request->session()->regenerateToken();
-    
-        return redirect('admin/login');
+        if(session()->has('LoggedAdmin')){
+            session()->pull('LoggedAdmin');
+            return redirect('/admin/login');
+        }
     }
 }
