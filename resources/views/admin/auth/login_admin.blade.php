@@ -51,6 +51,31 @@
                                 </div>
                             </div>
                             <div class="card-body">
+                                @if ($message = Session::get('loginError'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <span class="alert-icon align-middle">
+                                <span class="material-icons text-md">
+                                thumb_down_off_alt
+                                </span>
+                                </span>
+                                <span class="alert-text">{{ $message }}</span>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @elseif ($message = Session::get('gagal'))
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <span class="alert-icon align-middle">
+                                <span class="material-icons text-md">
+                                thumb_down_off_alt
+                                </span>
+                                </span>
+                                <span class="alert-text">{{ $message }}</span>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
                                 <form role="form" action="{{route('admin_login')}}" method="post">
                                     @csrf
                                     <div class="input-group input-group-outline my-3">

@@ -18,22 +18,22 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="template/assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="template/assets/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('template')}}/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="{{asset('template')}}/assets/img/favicon.png">
     <title>
         SPMI PT | {{ $title }}
     </title>
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
     <!-- Nucleo Icons -->
-    <link href="template/assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="template/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="{{asset('template')}}/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="{{asset('template')}}/assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
-    <link id="pagestyle" href="template/assets/css/material-dashboard.css?v=3.0.2" rel="stylesheet" />
+    <link id="pagestyle" href="{{asset('template')}}/assets/css/material-dashboard.css?v=3.0.2" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -41,7 +41,7 @@
         <div class="sidenav-header">
             <i class="fas fa-times p-3 cursor-pointer text-dark opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
             <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
-                <img src="template/assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
+                <img src="{{asset('template')}}/assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
                 <span class="ms-1 font-weight-bold text-dark">SPMI Perguruan Tinggi</span>
             </a>
         </div>
@@ -49,7 +49,7 @@
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-dark {{ ($title === 'Dashboard') ? 'active bg-gradient-primary' : '' }}" href="/">
+                    <a class="nav-link text-dark {{ ($title === 'Dashboard' || $title === 'Edit Perguruan Tinggi') ? 'active bg-gradient-primary' : '' }}" href="/">
                         <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">dashboard</i>
                         </div>
@@ -133,26 +133,9 @@
                             © <script>
                                 document.write(new Date().getFullYear())
                             </script>,
-                            made with <i class="fa fa-heart"></i> by
-                            <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
-                            for a better web.
+                            made by
+                            <a href="https://pcr.ac.id/" class="font-weight-bold" target="_blank">Politeknik Caltex Riau</a>    
                         </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                            <li class="nav-item">
-                                <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -217,28 +200,15 @@
                         <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
                     </div>
                 </div>
-                <hr class="horizontal dark my-sm-4">
-                <a class="btn bg-gradient-info w-100" href="https://www.creative-tim.com/product/material-dashboard">Free Download</a>
-                <a class="btn btn-outline-dark w-100" href="https://www.creative-tim.com/learning-lab/bootstrap/overview/material-dashboard">View documentation</a>
-                <div class="w-100 text-center">
-                    <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star creativetimofficial/material-dashboard on GitHub">Star</a>
-                    <h6 class="mt-3">Thank you for sharing!</h6>
-                    <a href="https://twitter.com/intent/tweet?text=Check%20Material%20UI%20Dashboard%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fsoft-ui-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
-                        <i class="fab fa-twitter me-1" aria-hidden="true"></i> Tweet
-                    </a>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/material-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
-                        <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
-                    </a>
-                </div>
             </div>
         </div>
     </div>
     <!--   Core JS Files   -->
-    <script src="template/assets/js/core/popper.min.js"></script>
-    <script src="template/assets/js/core/bootstrap.min.js"></script>
-    <script src="template/assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="template/assets/js/plugins/smooth-scrollbar.min.js"></script>
-    <script src="template/assets/js/plugins/chartjs.min.js"></script>
+    <script src="{{asset('template')}}/assets/js/core/popper.min.js"></script>
+    <script src="{{asset('template')}}/assets/js/core/bootstrap.min.js"></script>
+    <script src="{{asset('template')}}/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="{{asset('template')}}/assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="{{asset('template')}}/assets/js/plugins/chartjs.min.js"></script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -251,7 +221,7 @@
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="template/assets/js/material-dashboard.min.js?v=3.0.2"></script>
+    <script src="{{asset('template')}}/assets/js/material-dashboard.min.js?v=3.0.2"></script>
 </body>
 
 </html>

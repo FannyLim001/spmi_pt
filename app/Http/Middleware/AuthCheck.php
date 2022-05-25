@@ -17,7 +17,7 @@ class AuthCheck
     public function handle(Request $request, Closure $next)
     {
         if(!session()->has('LoggedUser') && ($request->path() !='/login')){
-            return redirect('/login')->with('gagal','You must be logged in');
+            return redirect('/login')->with('gagal','Anda harus login terlebih dahulu');
         }
 
         if(session()->has('LoggedUser') && ($request->path() == '/login') ){

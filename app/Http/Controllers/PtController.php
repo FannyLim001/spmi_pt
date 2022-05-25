@@ -18,15 +18,6 @@ class PtController extends Controller
         ]);
     }
 
-    public function index2(){
-
-        return view('pt/dashboard',
-        [
-            "title"=>"Dashboard",
-            "data" => Pt::first(),
-        ]);
-    }
-
     public function add(){
         
         return view('admin/pt/tambah_pt', [
@@ -56,7 +47,7 @@ class PtController extends Controller
         return redirect('perguruantinggi')->with('success', 'Data berhasil ditambahkan!');
     }
 
-    public function edit($id){
+    public function admin_edit($id){
 
         $pt = Pt::select('pts.*')
             ->where('id',$id)
@@ -85,6 +76,10 @@ class PtController extends Controller
             'no_tel' => $request->no_tel,
             'email' => $request->email,
             'password_pt' => $request->password_pt,
+            'total_mhs' => $request->total_mhs,
+            'total_dosen' => $request->total_dosen,
+            'total_program' => $request->total_program,
+            'total_publikasi' => $request->total_publikasi,
         ]);
         
         return redirect('perguruantinggi')->with('success', 'Data berhasil diubah!');
@@ -95,20 +90,6 @@ class PtController extends Controller
         Pt::where('id', $id)->delete();
 
         return redirect('perguruantinggi')->with('success', 'Data berhasil dihapus!');
-    }
-
-    public function show(){
-
-        $pertanyaan = Pertanyaan::join('jawabans', 'jawabans.id_jawaban', '=', 'pertanyaans.id_jawaban')
-                ->select('pertanyaans.*','jawabans.*')
-                ->get();
-
-        return view('pt/profil_spmi',
-        [
-            "title"=>"Profil SPMI",
-            "pt" => Pt::first(),
-            "data" => $pertanyaan,
-        ]);
     }
 
 }

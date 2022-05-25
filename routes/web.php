@@ -32,7 +32,11 @@ Route::group(['middleware'=>['pts']], function (){
 
     Route::get('/form', [LoginController::class, 'pt_form']);
 
-    Route::post('/hasil', [PtController::class, 'show']);
+    Route::post('/hasil', [LoginController::class, 'show']);
+
+    Route::get('/pt/edit/{id}', [LoginController::class, 'pt_edit']);
+    Route::post('/pt/update', [LoginController::class, 'pt_update']);
+
 });
 
 // admin
@@ -84,7 +88,7 @@ Route::group(['middleware'=>['admin']], function (){
 
     Route::get('/perguruantinggi/tambah', [PtController::class, 'add']);
     Route::post('/perguruantinggi/store', [PtController::class, 'store']);
-    Route::get('/perguruantinggi/edit/{id}', [PtController::class, 'edit']);
+    Route::get('/perguruantinggi/edit/{id}', [PtController::class, 'admin_edit']);
     Route::post('/perguruantinggi/update', [PtController::class, 'update']);
     Route::get('/perguruantinggi/hapus/{id}', [PtController::class, 'hapus']);
 });

@@ -17,7 +17,7 @@ class AdminCheck
     public function handle(Request $request, Closure $next)
     {
         if(!session()->has('LoggedAdmin') && ($request->path() !='/admin/login')){
-            return redirect('/admin/login')->with('gagal','You must be logged in');
+            return redirect('/admin/login')->with('gagal','Anda harus login terlebih dahulu');
         }
 
         if(session()->has('LoggedAdmin') && ($request->path() == '/admin/login') ){

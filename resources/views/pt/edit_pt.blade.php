@@ -1,4 +1,4 @@
-@extends('admin_layout.admin_main')
+@extends('pt_layout.main')
 
 @section('content')
 <div class="row">
@@ -9,7 +9,7 @@
             </div>
             <div class="card-body pt-2 p-3">
             @foreach ($pt as $p)
-            <form action="/perguruantinggi/update" method="post">
+            <form action="/pt/update" method="post">
                 @csrf
                 <div class="row">
                         <div class="col-md-12">
@@ -135,7 +135,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="input-group input-group-static mb-4">
-                                <label>Total Program</label>
+                                <label>Total Program Studi</label>
                                 <input type="number" class="form-control" name="total_program" value="{{ $p->total_program }}">
                             </div>
                         </div>
@@ -148,7 +148,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </form>
                 @endforeach
             </div>

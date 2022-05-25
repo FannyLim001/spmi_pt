@@ -64,7 +64,7 @@
         <div class="row gx-4 mb-2">
             <div class="col-auto">
                 <div class="avatar avatar-xl position-relative">
-                    <img src="assets/img/university.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                    <img src="{{asset('template')}}/assets/img/university.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
                 </div>
             </div>        
             <div class="col-auto my-auto">
@@ -76,6 +76,16 @@
                     {{ $LoggedUserInfo['nm_bp'] }}
                     </p>
                 </div>
+            </div>
+            <div class="col-auto text-right">
+                <div class="h-100">
+                <a href="/pt/edit/{{$LoggedUserInfo['id']}}">
+                    <button class="btn btn-icon btn-3 btn-info" type="button">
+                        <span class="btn-inner--icon"><i class="material-icons">save_as</i></span>
+                        <span class="btn-inner--text">Edit</span>
+                    </button>
+                </a>
+            </div>
             </div>
         </div>
         <div class="row">
@@ -113,7 +123,7 @@
                 <div class="col-12 col-xl-4">
                     <div class="card card-plain h-100">
                         <div class="card-body p-3 mb-3">
-                            <img src="assets/img/Graduation-pana.svg" height="110%">
+                            <img src="{{asset('template')}}/assets/img/Graduation-pana.svg" height="110%">
                         </div>
                     </div>
                 </div>

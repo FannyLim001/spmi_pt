@@ -76,6 +76,61 @@ class LoginController extends Controller
         return view('pt.form_spmi', $data);
     }
 
+    public function pt_edit($id){
+
+        $pt = Pt::select('pts.*')
+            ->where('id',$id)
+            ->get();
+
+            $data = ['LoggedUserInfo'=>Pt::where('id','=', session('LoggedUser'))->first(),
+            "title" => "Edit Perguruan Tinggi","pt" => $pt,];
+            return view('pt.edit_pt', $data);
+    }
+    
+    public function pt_update(Request $request)
+    {
+        Pt::where('id', $request->id)->update([
+            'lembaga' => $request->lembaga,
+            'kelompok_koordinator' => $request->kelompok_koordinator,
+            'npsn' => $request->npsn,
+            'nama_pt' => $request->nama_pt,
+            'nm_bp' => $request->nm_bp,
+            'provinsi_pt' => $request->provinsi_pt,
+            'jln' => $request->jln,
+            'kec_pt' => $request->kec_pt,
+            'kabupaten/kota' => $request->kabupaten_kota,
+            'website' => $request->website,
+            'no_tel' => $request->no_tel,
+            'email' => $request->email,
+            'password_pt' => $request->password_pt,
+            'total_mhs' => $request->total_mhs,
+            'total_dosen' => $request->total_dosen,
+            'total_program' => $request->total_program,
+            'total_publikasi' => $request->total_publikasi,
+        ]);
+        
+        $data = ['LoggedUserInfo'=>Pt::where('id','=', session('LoggedUser'))->first(),
+                "title" => "Edit Perguruan Tinggi"];
+        return view('pt.dashboard', $data);
+    }
+
+    function show(Request $request){
+
+        $rekomendasi = Jawaban::join('pertanyaans', 'jawabans.id_pertanyaan', '=', 'pertanyaans.id')->select('pertanyaans.*','jawabans.*')->get();
+
+        $data=['LoggedUserInfo'=>Pt::where('id','=', session('LoggedUser'))->first(),"title" => "Profil SPMI",
+            "nama" => $request->nama,
+            "jabatan" => $request->jabatan,
+            "radio" => $request->radio,
+            "check" => $request->input('check'),
+            "rekomendasi" => $rekomendasi,
+        ];
+
+        // dd($data);
+
+        return view('pt.profil_spmi', $data);
+    }
+
     function check_admin(Request $request){
         //Validate requests
         $request->validate([

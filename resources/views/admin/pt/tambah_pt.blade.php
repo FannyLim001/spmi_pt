@@ -114,6 +114,30 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-group input-group-static mb-4">
+                                <label>Total Mahasiswa</label>
+                                <input type="number" class="form-control" name="total_mhs">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-group input-group-static mb-4">
+                                <label>Total Dosen</label>
+                                <input type="number" class="form-control" name="total_dosen">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-group input-group-static mb-4">
+                                <label>Total Publikasi</label>
+                                <input type="number" class="form-control" name="total_publikasi">
+                            </div>
+                        </div>
+                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
