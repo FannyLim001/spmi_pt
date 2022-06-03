@@ -26,16 +26,16 @@ Route::get('/login', [LoginController::class, 'pt']);
 Route::post('/login', [LoginController::class, 'check_pt'])->name('pt_login');
 
 Route::group(['middleware'=>['pts']], function (){
-    Route::get('/', [LoginController::class, 'pt_dashboard']);
+    Route::get('/', [PtController::class, 'pt_dashboard']);
 
     Route::get('/logout', [LoginController::class, 'logout_pt'])->name('pt_logout');
 
-    Route::get('/form', [LoginController::class, 'pt_form']);
+    Route::get('/form', [PtController::class, 'pt_form']);
 
-    Route::post('/hasil', [LoginController::class, 'show']);
+    Route::post('/hasil', [PtController::class, 'show']);
 
-    Route::get('/pt/edit/{id}', [LoginController::class, 'pt_edit']);
-    Route::post('/pt/update', [LoginController::class, 'pt_update']);
+    Route::get('/pt/edit/{id}', [PtController::class, 'pt_edit']);
+    Route::post('/pt/update', [PtController::class, 'pt_update']);
 
 });
 

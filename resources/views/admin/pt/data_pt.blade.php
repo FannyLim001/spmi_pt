@@ -36,14 +36,23 @@
         <table id="table_id" class="table align-items-center mb-0">
             <thead>
                 <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama PT</th>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nama Badan Penyelenggara</th>
                     <th class="text-secondary opacity-7"></th>
                 </tr>
             </thead>
             <tbody>
+            <?php $i = 1; ?>
             @foreach ($pt as $p )
                 <tr>
+                    <td>
+                        <div class="d-flex px-1 py-1">
+                            <div class="d-flex flex-column justify-content-center">
+                                <p class="text-sm text-secondary mb-0"><?= $i++; ?></p>
+                            </div>
+                        </div>
+                    </td>
                     <td>
                         <div class="d-flex px-1 py-1">
                             <div class="d-flex flex-column justify-content-center">

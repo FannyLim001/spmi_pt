@@ -42,12 +42,13 @@
                 </tr>
             </thead>
             <tbody>
+            <?php $i = 1; ?>
             @foreach ($kat as $k )            
                 <tr>
                     <td>
                         <div class="d-flex px-2 py-1">
                             <div class="d-flex flex-column justify-content-center">
-                                <p class="text-sm text-secondary mb-0">{{ $k->id_kategori }}</p>
+                                <p class="text-sm text-secondary mb-0"><?= $i++; ?></p>
                             </div>
                         </div>
                     </td>

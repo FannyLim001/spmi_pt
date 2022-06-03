@@ -53,7 +53,7 @@
             </div>
         </div>
         <br>
-        @foreach ($pertanyaan as $p)
+        @foreach ($pertanyaan as $p)            
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -92,6 +92,6 @@
             </div>
             <br>
         @endforeach
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
     </form>
 @endsection
