@@ -34,7 +34,7 @@ class PtSeeder extends Seeder
                     'website' => $data['9'],
                     'no_tel' => $data['10'],
                     'email' => $data['11'],
-                    'password_pt' => $data['2'],
+                    'password_pt' => trim($data['2']),
                     'total_mhs' => '2345',
                     'total_dosen' => '70',
                     'total_program' => '20',

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\JawabanController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LoginController;
@@ -30,9 +32,9 @@ Route::group(['middleware'=>['pts']], function (){
 
     Route::get('/logout', [LoginController::class, 'logout_pt'])->name('pt_logout');
 
-    Route::get('/form', [PtController::class, 'pt_form']);
+    Route::get('/form', [FormController::class, 'index']);
 
-    Route::post('/hasil', [PtController::class, 'show']);
+    Route::post('/hasil', [FormController::class, 'result']);
 
     Route::get('/pt/edit/{id}', [PtController::class, 'pt_edit']);
     Route::post('/pt/update', [PtController::class, 'pt_update']);
@@ -44,11 +46,7 @@ Route::get('/admin/login', [LoginController::class, 'admin']);
 Route::post('/admin/login', [LoginController::class, 'check_admin'])->name('admin_login');
 
 Route::group(['middleware'=>['admin']], function (){
-    Route::get('/admin/dashboard', function () {
-        return view('admin/dashboard_admin', [
-            "title" => "Dashboard"
-        ]);
-    });
+    Route::get('/admin/dashboard', [AdminController::class, 'admin_dashboard']);
 
     Route::get('/admin/logout', [LoginController::class, 'logout_admin'])->name('admin_logout');
 

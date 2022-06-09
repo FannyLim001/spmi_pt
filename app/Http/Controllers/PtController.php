@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Form;
 use App\Models\Jawaban;
 use App\Models\Pertanyaan;
 use Illuminate\Http\Request;
@@ -25,22 +26,6 @@ class PtController extends Controller
         $data = ['LoggedUserInfo'=>Pt::where('id','=', session('LoggedUser'))->first(),
                 "title" => "Dashboard",];
         return view('pt.dashboard', $data);
-    }
-
-    function pt_form(){
-
-        $pertanyaan = Pertanyaan::join('tipe_pertanyaan', 'tipe_pertanyaan.id_tipe_pertanyaan', '=', 'pertanyaans.id_tipe_pertanyaan')
-                ->select('pertanyaans.*','tipe_pertanyaan.*')
-                ->get();
-
-        $jwb = Jawaban::join('pertanyaans', 'pertanyaans.id', '=', 'jawabans.id_pertanyaan')
-                ->select('pertanyaans.*','jawabans.*')
-                ->get();
-
-        $data = ['LoggedUserInfo'=>Pt::where('id','=', session('LoggedUser'))->first(),
-                "title" => "Form","pertanyaan" => $pertanyaan,
-                "jawaban" => $jwb,];
-        return view('pt.form_spmi', $data);
     }
 
     public function pt_edit($id){
@@ -79,25 +64,6 @@ class PtController extends Controller
         $data = ['LoggedUserInfo'=>Pt::where('id','=', session('LoggedUser'))->first(),
                 "title" => "Edit Perguruan Tinggi"];
         return view('pt.dashboard', $data);
-    }
-
-    function show(Request $request){
-
-        $rekomendasi = Jawaban::join('pertanyaans', 'jawabans.id_pertanyaan', '=', 'pertanyaans.id')->select('pertanyaans.*','jawabans.*')->get();
-
-        $data=['LoggedUserInfo'=>Pt::where('id','=', session('LoggedUser'))->first(),"title" => "Profil SPMI",
-            "nama" => $request->nama,
-            "jabatan" => $request->jabatan,
-            "radio" => $request->radio,
-            "check" => $request->input('check'),
-            "rekomendasi" => $rekomendasi,
-        ];
-
-        if (isset($request->submit)) 
-        {
-            
-        }
-        return view('pt.profil_spmi', $data);
     }
 
     // admin

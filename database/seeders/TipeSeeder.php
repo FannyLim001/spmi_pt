@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Tipe;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -15,8 +16,16 @@ class TipeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('tipe_pertanyaan')->insertGetId([
-            'tipe' => 'radiobutton',
-        ]);
+        $tipe =  [
+            [
+              'tipe' => 'radiobutton',
+            ],
+            [
+              'tipe' => 'checkbox',
+            ]
+          ];
+
+          Tipe::Insert($tipe);
+          
     }
 }

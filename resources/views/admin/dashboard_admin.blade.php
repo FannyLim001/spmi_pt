@@ -10,11 +10,8 @@
                 </div>
                 <div class="text-end pt-1">
                     <p class="text-sm mb-0 text-capitalize">Total Perguruan Tinggi</p>
-                    <h4 class="mb-0">2453</h4>
+                    <h4 class="mb-0">{{ $data['total_pt'] }}</h4>
                 </div>
-            </div>
-            <div class="card-footer p-3">
-                <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than lask year</p>
             </div>
         </div>
     </div>
@@ -22,16 +19,12 @@
         <div class="card">
             <div class="card-header p-3 pt-2">
                 <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
-                    <i class="material-icons opacity-10">thumb_up_alt</i>
+                    <i class="material-icons opacity-10">quiz</i>
                 </div>
                 <div class="text-end pt-1">
-                    <p class="text-sm mb-0 text-capitalize">Total Hasil Positif</p>
+                    <p class="text-sm mb-0 text-capitalize">Total Pertanyaan</p>
                     <h4 class="mb-0">70</h4>
                 </div>
-            </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-                <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+3% </span>than last month</p>
             </div>
         </div>
     </div>
@@ -39,16 +32,12 @@
         <div class="card">
             <div class="card-header p-3 pt-2">
                 <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                    <i class="material-icons opacity-10">thumb_down_alt</i>
+                    <i class="material-icons opacity-10">thumb_up_alt</i>
                 </div>
                 <div class="text-end pt-1">
-                    <p class="text-sm mb-0 text-capitalize">Total Hasil Negatif</p>
+                    <p class="text-sm mb-0 text-capitalize">Total Penjawab</p>
                     <h4 class="mb-0">20</h4>
                 </div>
-            </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-                <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+3% </span>than last few years</p>
             </div>
         </div>
     </div>
@@ -59,13 +48,9 @@
                     <i class="material-icons opacity-10">score</i>
                 </div>
                 <div class="text-end pt-1">
-                    <p class="text-sm mb-0 text-capitalize">Rata-rata Menjawab</p>
-                    <h4 class="mb-0">68,4%</h4>
+                    <p class="text-sm mb-0 text-capitalize">Total Kategori Pertanyaan</p>
+                    <h4 class="mb-0">8</h4>
                 </div>
-            </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-                <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+5% </span>than last month</p>
             </div>
         </div>
     </div>

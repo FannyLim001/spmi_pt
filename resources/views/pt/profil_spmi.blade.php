@@ -25,44 +25,28 @@
                     </div>
                 </div>
             </div>
+            @foreach ($form as $f)
             <div class="row">
                 <div class="row">
                     <div class="col-12 mt-4">
                         <h6 class="mb-1">Data Pengisi</h6>
                         <p class="text-sm">Form Penilaian SPMI</p>
-                        <p>Nama: {{ $nama }}</p>
-                        <p>Jabatan: {{ $jabatan }}</p>
+                        <p>Nama: {{ $f->nama }}</p>
+                        <p>Jabatan: {{ $f->jabatan }}</p>
                         <h6 class="mb-1">Hasil</h6>
                         <p class="text-sm">Hasil SPMI</p>
                         <p>
-                            @foreach ($radio as $j)
-                                {{ $j }}.
-                            @endforeach
-                            @foreach ($check as $c)
-                                {{ $c }}.
-                            @endforeach
+                            {{ $f->hasil }}
                         </p>
                         <h6 class="mb-1">Rekomendasi</h6>
                         <p class="text-sm">Rekomendasi berdasarkan hasil SPMI</p>
                         <p>
-                            @foreach ($radio as $j)
-                                @foreach ($rekomendasi as $r)
-                                    @if ($r->jawaban === $j)
-                                        {{ $r->rekomendasi }}.
-                                    @endif
-                                @endforeach
-                            @endforeach
-                                @foreach ($rekomendasi as $r)
-                                    @foreach ($check as $c)
-                                        @if ($r->jawaban === $c)
-                                            {{ $r->rekomendasi }}.
-                                        @endif
-                                    @endforeach
-                                @endforeach
+                            {{ $f->rekomendasi }}
                         </p>
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
     </div>
 @endsection

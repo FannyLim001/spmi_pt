@@ -53,6 +53,7 @@
             </div>
         </div>
         <br>
+        <?php $rekom="" ?>
         @foreach ($pertanyaan as $p)            
             <div class="row">
                 <div class="col-md-12">
@@ -60,7 +61,7 @@
                         <div class="card-header pb-0 px-4">
                             <p class="mb-0 text-md">{{ $p->pertanyaan }}</p>
                         </div>
-                        @if ($p->tipe_pertanyaan === 'radiobutton')
+                        @if ($p->tipe === 'radiobutton')
                             @foreach ($jawaban as $j)
                                 @if ($p->id === $j->id_pertanyaan)
                                     <div class="card-body pt-2 p-1">
@@ -73,7 +74,7 @@
                                     </div>
                                 @endif
                             @endforeach
-                            @elseif($p->tipe_pertanyaan === 'checkbox')
+                            @elseif($p->tipe === 'checkbox')
                             @foreach ($jawaban as $j)
                                 @if ($p->id === $j->id_pertanyaan)
                                     <div class="card-body pt-2 p-0">
