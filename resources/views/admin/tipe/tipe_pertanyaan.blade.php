@@ -53,16 +53,16 @@
                         </div>
                     </td>
                     <td>
-                        <p class="text-xs font-weight-bold mb-0">{{ $t->tipe_pertanyaan }}</p>
+                        <p class="text-xs font-weight-bold mb-0">{{ $t->tipe }}</p>
                     </td>
                     <td class="align-right">
-                        <a href="/pertanyaan/tipe/edit/{{$t->id_tipe_pertanyaan}}">
+                        <a href="/pertanyaan/tipe/edit/{{$t->id_tipe}}">
                             <button class="btn btn-icon btn-3 btn-info" type="button">
                                 <span class="btn-inner--icon"><i class="material-icons">save_as</i></span>
                                 <span class="btn-inner--text">Edit</span>
                             </button>
                         </a>
-                        <a href="/pertanyaan/tipe/hapus/{{$t->id_tipe_pertanyaan}}">
+                        <a href="/pertanyaan/tipe/hapus/{{$t->id_tipe}}">
                             <button class="btn btn-icon btn-3 btn-danger" type="button">
                                 <span class="btn-inner--icon"><i class="material-icons">delete</i></span>
                                 <span class="btn-inner--text">Hapus</span>

@@ -30,7 +30,7 @@ class TipeController extends Controller
     public function store(Request $request)
     {
         Tipe::insertGetId([
-            'tipe_pertanyaan' => $request->tipe_pertanyaan,
+            'tipe' => $request->tipe_pertanyaan,
         ]);
         
         return redirect('pertanyaan/tipe')->with('success', 'Data berhasil ditambahkan!');
@@ -39,7 +39,7 @@ class TipeController extends Controller
     public function edit($id){
 
         $tipe = Tipe::select('tipe_pertanyaan.*')
-            ->where('id_tipe_pertanyaan',$id)
+            ->where('id_tipe',$id)
             ->get();
 
         return view('admin/tipe/edit_tipepertanyaan',
@@ -51,8 +51,8 @@ class TipeController extends Controller
 
     public function update(Request $request)
     {
-        Tipe::where('id_tipe_pertanyaan', $request->id)->update([
-            'tipe_pertanyaan' => $request->tipe_pertanyaan,
+        Tipe::where('id_tipe', $request->id)->update([
+            'tipe' => $request->tipe_pertanyaan,
         ]);
         
         return redirect('pertanyaan/tipe')->with('success', 'Data berhasil diubah!');
@@ -60,7 +60,7 @@ class TipeController extends Controller
 
     public function hapus($id)
     {
-        Tipe::where('id_tipe_pertanyaan', $id)->delete();
+        Tipe::where('id_tipe', $id)->delete();
 
         return redirect('pertanyaan/tipe')->with('success', 'Data berhasil dihapus!');
     }

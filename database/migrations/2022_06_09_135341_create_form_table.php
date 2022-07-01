@@ -20,8 +20,8 @@ return new class extends Migration
               ->references('id')->on('pts')->onDelete('cascade')->onUpdate('cascade');
             $table->string('nama');
             $table->string('jabatan');
-            $table->string('hasil');
-            $table->string('rekomendasi');
+            $table->longText('hasil');
+            $table->longText('rekomendasi');
             $table->timestamps();
         });
     }

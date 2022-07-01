@@ -13,10 +13,10 @@
                 @csrf
                     <div class="row">
                         <div class="col-md-12">
-                        <input type="hidden" name="id" value="{{ $t->id_tipe_pertanyaan }}">
+                        <input type="hidden" name="id" value="{{ $t->id_tipe }}">
                             <div class="input-group input-group-static mb-4">
                                 <label>Tipe Pertanyaan</label>
-                                <input type="text" class="form-control" name="tipe_pertanyaan" value="{{ $t->tipe_pertanyaan }}">
+                                <input type="text" class="form-control" name="tipe_pertanyaan" value="{{ $t->tipe }}">
                             </div>
                         </div>
                     </div>

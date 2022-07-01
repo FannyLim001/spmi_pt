@@ -70,6 +70,8 @@ class FormController extends Controller
             'jabatan' => $request->jabatan,
             'hasil' => $hasil1.'. '.$hasil2,
             'rekomendasi' => $rekom,
+            "created_at" =>  \Carbon\Carbon::now(), # new \Datetime()
+            "updated_at" => \Carbon\Carbon::now(),  # new \Datetime()
         ]);
 
         $form = DB::table('form')->where('id_pt','=',$pt->id)->get();

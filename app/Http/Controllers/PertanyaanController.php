@@ -40,7 +40,7 @@ class PertanyaanController extends Controller
         Pertanyaan::insertGetId([
             'pertanyaan' => $request->pertanyaan,
             'id_kategori' => $request->kategori,
-            'id_tipe_pertanyaan' => $request->tipe,
+            'id_tipe' => $request->tipe,
         ]);
         
         return redirect('pertanyaan')->with('success', 'Data berhasil ditambahkan!');
@@ -49,7 +49,7 @@ class PertanyaanController extends Controller
     public function edit($id){
 
         $pertanyaan = Pertanyaan::join('kategori_pertanyaan', 'kategori_pertanyaan.id_kategori', '=', 'pertanyaans.id_kategori')
-            ->join('tipe_pertanyaan', 'tipe_pertanyaan.id_tipe_pertanyaan', '=', 'pertanyaans.id_tipe_pertanyaan')
+            ->join('tipe_pertanyaan', 'tipe_pertanyaan.id_tipe', '=', 'pertanyaans.id_tipe')
             ->select('pertanyaans.*','kategori_pertanyaan.*','tipe_pertanyaan.*')
             ->where('id',$id)
             ->get();
@@ -72,7 +72,7 @@ class PertanyaanController extends Controller
         Pertanyaan::where('id', $request->id)->update([
             'pertanyaan' => $request->pertanyaan,
             'id_kategori' => $request->kategori,
-            'id_tipe_pertanyaan' => $request->tipe,
+            'id_tipe' => $request->tipe,
         ]);
         
         return redirect('pertanyaan')->with('success', 'Data berhasil diubah!');

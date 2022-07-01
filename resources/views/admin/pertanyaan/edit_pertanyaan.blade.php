@@ -38,9 +38,9 @@
                             <div class="input-group input-group-static mb-4">
                                 <label for="exampleFormControlSelect1" class="ms-0">Tipe Pertanyaan</label>
                                 <select class="form-control" id="exampleFormControlSelect1" name="tipe">
-                                <option value="{{ $d->id_tipe_pertanyaan }}">{{ $d->tipe_pertanyaan }}</option>
+                                <option value="{{ $d->id_tipe }}">{{ $d->tipe }}</option>
                                 @foreach ($tipe as $t ) 
-                                <option value="{{ $t->id_tipe_pertanyaan }}">{{ $t->tipe_pertanyaan }}</option>
+                                <option value="{{ $t->id_tipe }}">{{ $t->tipe }}</option>
                                 @endforeach
                                 </select>
                             </div>
