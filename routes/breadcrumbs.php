@@ -53,6 +53,10 @@ Breadcrumbs::for('pt_edit', function (BreadcrumbTrail $trail, $id) {
     $trail->push('Edit Perguruan Tinggi', route('pt_edit', $id));
 });
 
+Breadcrumbs::for('riwayat_jawaban', function (BreadcrumbTrail $trail) {
+    $trail->push('Riwayat Jawaban', route('riwayat_jawaban'));
+});
+
 // Home > Blog
 Breadcrumbs::for('pertanyaan_tambah', function (BreadcrumbTrail $trail) {
     $trail->parent('pertanyaan');

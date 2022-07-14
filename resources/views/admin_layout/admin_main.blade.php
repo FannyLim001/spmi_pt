@@ -105,6 +105,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link text-dark {{ ($title === 'Data Riwayat Jawaban') ? 'active bg-gradient-primary' : '' }}" href="/riwayatjawaban">
+                        <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">history</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Data Riwayat Jawaban</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link text-dark " href="/admin/logout">
                         <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">logout</i>

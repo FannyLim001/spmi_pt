@@ -38,6 +38,19 @@ class FormController extends Controller
         }
     }
 
+    public function all(){
+
+        $form = Form::join('pts', 'pts.id', '=', 'form.id_pt')
+        ->select('form.*','nama_pt')
+        ->get();
+
+        return view('admin/form/riwayat_jawaban',
+        [
+            "title"=>"Data Riwayat Jawaban",
+            "form" => $form,
+        ]);
+    }
+
     function result(Request $request){
         $rekomendasi = Jawaban::join('pertanyaans', 'jawabans.id_pertanyaan', '=', 'pertanyaans.id')->select('jawabans.*')->get();
 

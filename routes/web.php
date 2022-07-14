@@ -89,4 +89,6 @@ Route::group(['middleware'=>['admin']], function (){
     Route::get('/perguruantinggi/edit/{id}', [PtController::class, 'admin_edit'])->name('admin_pt_edit');
     Route::post('/perguruantinggi/update', [PtController::class, 'update']);
     Route::get('/perguruantinggi/hapus/{id}', [PtController::class, 'hapus']);
+
+    Route::get('/riwayatjawaban', [FormController::class, 'all'])->name('riwayat_jawaban');
 });
